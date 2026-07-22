@@ -41,8 +41,10 @@ class LazyChoices(argparse.Action, Generic[T]):
         self.sort = sort
         self.cache = cache
         self.isolation_mode = isolation_mode
-        self._help: Optional[str] = None
         self._obj: Optional[Iterable[T]] = None
+        # Initialize before super().__init__ to prevent argparse
+        # from triggering getter() during __init__ on Python 3.14
+        self._help = ""
         super().__init__(*args, **kwargs)
         self.choices = self
 
