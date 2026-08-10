@@ -1,7 +1,7 @@
 """Logic for checking and displaying man pages."""
 
-import subprocess
 import os
+import subprocess
 import sys
 from httpie.context import Environment
 
